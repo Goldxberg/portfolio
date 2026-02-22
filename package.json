@@ -1,0 +1,6 @@
+{
+  "name": "portfolio",
+  "scripts": {
+    "build": "cp -r public dist"
+  }
+}
