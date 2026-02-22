@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ariel Goldberg — Developer</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0a0a0a;
+      color: #e0e0e0;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .gradient-bg {
+      position: fixed;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 30% 40%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+                  radial-gradient(circle at 70% 60%, rgba(139, 92, 246, 0.06) 0%, transparent 50%);
+      animation: drift 20s ease-in-out infinite;
+      z-index: 0;
+    }
+
+    @keyframes drift {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(-2%, 2%); }
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 80px 24px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #3b82f6;
+      margin-bottom: 24px;
+      font-weight: 600;
+    }
+
+    h1 {
+      font-size: clamp(40px, 8vw, 72px);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 24px;
+      background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      font-size: 20px;
+      color: #888;
+      line-height: 1.6;
+      margin-bottom: 48px;
+      max-width: 560px;
+    }
+
+    .links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 80px;
+    }
+
+    .links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+
+    .links a.primary {
+      background: #3b82f6;
+      color: white;
+    }
+
+    .links a.primary:hover {
+      background: #2563eb;
+      transform: translateY(-1px);
+    }
+
+    .links a.secondary {
+      background: rgba(255, 255, 255, 0.06);
+      color: #ccc;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .links a.secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(-1px);
+    }
+
+    .section-title {
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #555;
+      margin-bottom: 24px;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 80px;
+    }
+
+    .skills span {
+      padding: 8px 16px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 6px;
+      font-size: 13px;
+      color: #aaa;
+      transition: all 0.2s;
+    }
+
+    .skills span:hover {
+      border-color: #3b82f6;
+      color: #3b82f6;
+    }
+
+    .projects {
+      display: grid;
+      gap: 16px;
+      margin-bottom: 80px;
+    }
+
+    .project {
+      padding: 24px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      transition: all 0.2s;
+    }
+
+    .project:hover {
+      border-color: rgba(59, 130, 246, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .project h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+
+    .project p {
+      font-size: 14px;
+      color: #777;
+      line-height: 1.5;
+    }
+
+    .project .tech {
+      margin-top: 12px;
+      font-size: 12px;
+      color: #3b82f6;
+    }
+
+    .terminal {
+      background: #111;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 24px;
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 14px;
+      margin-bottom: 80px;
+    }
+
+    .terminal .prompt { color: #3b82f6; }
+    .terminal .command { color: #e0e0e0; }
+    .terminal .output { color: #555; }
+
+    .terminal-line {
+      margin-bottom: 8px;
+      opacity: 0;
+      animation: fadeIn 0.5s forwards;
+    }
+
+    .terminal-line:nth-child(1) { animation-delay: 0.3s; }
+    .terminal-line:nth-child(2) { animation-delay: 0.8s; }
+    .terminal-line:nth-child(3) { animation-delay: 1.3s; }
+    .terminal-line:nth-child(4) { animation-delay: 1.8s; }
+    .terminal-line:nth-child(5) { animation-delay: 2.3s; }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 0;
+      color: #333;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <div class="gradient-bg"></div>
+
+  <div class="container">
+    <span class="tag">Developer</span>
+    <h1>Ariel Goldberg</h1>
+    <p class="subtitle">
+      Terminal-first developer building modern web apps with AI-powered tools.
+      I ship fast, learn by doing, and automate everything.
+    </p>
+
+    <div class="links">
+      <a href="https://github.com/Goldxberg" class="primary">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        GitHub
+      </a>
+      <a href="mailto:iarigoldberg@gmail.com" class="secondary">
+        ✉ Contact
+      </a>
+    </div>
+
+    <div class="section-title">What I Work With</div>
+    <div class="skills">
+      <span>TypeScript</span>
+      <span>React</span>
+      <span>Next.js</span>
+      <span>Node.js</span>
+      <span>Python</span>
+      <span>HTML/CSS</span>
+      <span>Git</span>
+      <span>Vercel</span>
+      <span>Copilot CLI</span>
+      <span>Claude Code</span>
+    </div>
+
+    <div class="section-title">Projects</div>
+    <div class="projects">
+      <div class="project">
+        <h3>🚀 Portfolio Site</h3>
+        <p>This site — built and deployed entirely from the terminal using Copilot CLI in under 2 minutes.</p>
+        <div class="tech">HTML · CSS · Vercel</div>
+      </div>
+      <div class="project">
+        <h3>🤖 AI-Powered Workflow</h3>
+        <p>Terminal-first development setup with Copilot CLI, Claude Code, MCP servers, and automated Git workflows.</p>
+        <div class="tech">Copilot CLI · Claude Code · MCP</div>
+      </div>
+    </div>
+
+    <div class="section-title">Built From Terminal</div>
+    <div class="terminal">
+      <div class="terminal-line">
+        <span class="prompt">~</span> <span class="command">copilot</span>
+      </div>
+      <div class="terminal-line">
+        <span class="output">→ Build me a portfolio site</span>
+      </div>
+      <div class="terminal-line">
+        <span class="prompt">~</span> <span class="command">git push origin main</span>
+      </div>
+      <div class="terminal-line">
+        <span class="output">→ Deployed to production ✓</span>
+      </div>
+      <div class="terminal-line">
+        <span class="prompt">~</span> <span class="command">echo "Ship it 🚀"</span>
+      </div>
+    </div>
+
+    <footer>
+      Built with ☕ and AI from the terminal — © 2026 Ariel Goldberg
+    </footer>
+  </div>
+</body>
+</html>
