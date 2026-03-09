@@ -175,6 +175,48 @@
       color: #3b82f6;
     }
 
+    .project a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 12px;
+      padding: 6px 14px;
+      font-size: 12px;
+      color: #ccc;
+      text-decoration: none;
+      background: rgba(59, 130, 246, 0.1);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+
+    .project a:hover {
+      background: rgba(59, 130, 246, 0.2);
+      border-color: #3b82f6;
+      color: #fff;
+    }
+
+    .project .status {
+      display: inline-block;
+      margin-left: 8px;
+      padding: 2px 8px;
+      font-size: 11px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    .project .status.live {
+      background: rgba(34, 197, 94, 0.15);
+      color: #22c55e;
+      border: 1px solid rgba(34, 197, 94, 0.3);
+    }
+
+    .project .status.api {
+      background: rgba(168, 85, 247, 0.15);
+      color: #a855f7;
+      border: 1px solid rgba(168, 85, 247, 0.3);
+    }
+
     .terminal {
       background: #111;
       border: 1px solid rgba(255, 255, 255, 0.08);
@@ -200,6 +242,7 @@
     .terminal-line:nth-child(3) { animation-delay: 1.3s; }
     .terminal-line:nth-child(4) { animation-delay: 1.8s; }
     .terminal-line:nth-child(5) { animation-delay: 2.3s; }
+    .terminal-line:nth-child(6) { animation-delay: 2.8s; }
 
     @keyframes fadeIn {
       to { opacity: 1; }
@@ -217,11 +260,10 @@
   <div class="gradient-bg"></div>
 
   <div class="container">
-    <span class="tag">Developer</span>
+    <span class="tag">AI Automation Engineer</span>
     <h1>Ariel Goldberg</h1>
     <p class="subtitle">
-      Terminal-first developer building modern web apps with AI-powered tools.
-      I ship fast, learn by doing, and automate everything.
+      AI Automation Engineer & Solutions Engineer building production tools with Claude API, Python, and Next.js. Trilingual: English · Hebrew · Russian.
     </p>
 
     <div class="links">
@@ -236,48 +278,75 @@
 
     <div class="section-title">What I Work With</div>
     <div class="skills">
-      <span>TypeScript</span>
-      <span>React</span>
-      <span>Next.js</span>
-      <span>Node.js</span>
+      <span>Claude API</span>
       <span>Python</span>
-      <span>HTML/CSS</span>
-      <span>Git</span>
+      <span>Next.js</span>
+      <span>React</span>
+      <span>Node.js</span>
+      <span>Zapier</span>
+      <span>Make.com</span>
+      <span>Twilio</span>
+      <span>REST APIs</span>
       <span>Vercel</span>
-      <span>Copilot CLI</span>
-      <span>Claude Code</span>
+      <span>DigitalOcean</span>
+      <span>Git</span>
     </div>
 
     <div class="section-title">Projects</div>
     <div class="projects">
       <div class="project">
-        <h3>🚀 Portfolio Site</h3>
-        <p>This site — built and deployed entirely from the terminal using Copilot CLI in under 2 minutes.</p>
-        <div class="tech">HTML · CSS · Vercel</div>
+        <h3>job-scout <span class="status api">Claude AI</span></h3>
+        <p>CLI tool that scrapes real job postings from RemoteOK and Hacker News, then uses Claude AI to score each one by fit percentage with weighted criteria (role match, skills, company type, location).</p>
+        <div class="tech">Python · Claude API · BeautifulSoup · Rich</div>
+        <a href="https://github.com/Goldxberg/job-scout" target="_blank">View on GitHub</a>
       </div>
       <div class="project">
-        <h3>🤖 AI-Powered Workflow</h3>
-        <p>Terminal-first development setup with Copilot CLI, Claude Code, MCP servers, and automated Git workflows.</p>
-        <div class="tech">Copilot CLI · Claude Code · MCP</div>
+        <h3>onboarding-gen <span class="status api">Claude AI</span></h3>
+        <p>Generates complete client onboarding packages — welcome email, setup checklist, FAQ, escalation path, and 30-60-90 day milestones. Takes a company name and product type, outputs polished markdown.</p>
+        <div class="tech">Python · Claude API · Markdown · Rich</div>
+        <a href="https://github.com/Goldxberg/onboarding-gen" target="_blank">View on GitHub</a>
+      </div>
+      <div class="project">
+        <h3>support-bot <span class="status api">Claude AI</span></h3>
+        <p>Bilingual customer support chatbot (Hebrew/English) with automatic language detection, rich terminal UI, and persistent conversation memory. Supports session resume.</p>
+        <div class="tech">Python · Claude API · Hebrew NLP · Rich</div>
+        <a href="https://github.com/Goldxberg/support-bot" target="_blank">View on GitHub</a>
+      </div>
+      <div class="project">
+        <h3>FocusFlow <span class="status live">LIVE</span></h3>
+        <p>AI-powered task manager with intelligent task breakdown. Full-stack app with Next.js frontend deployed on Vercel and Express API on DigitalOcean using AWS Bedrock.</p>
+        <div class="tech">Next.js · Express · AWS Bedrock · DigitalOcean</div>
+        <a href="https://focusflow-nine-nu.vercel.app" target="_blank">Live App</a>
+        <a href="https://github.com/Goldxberg/focusflow" target="_blank">GitHub</a>
+      </div>
+      <div class="project">
+        <h3>Command Center <span class="status live">LIVE</span></h3>
+        <p>Centralized dashboard for managing APIs, deployments, and project status. Built with Next.js and deployed on Vercel.</p>
+        <div class="tech">Next.js · React · Tailwind · Vercel</div>
+        <a href="https://command-center-eight-bay.vercel.app" target="_blank">Live App</a>
+        <a href="https://github.com/Goldxberg/command-center" target="_blank">GitHub</a>
       </div>
     </div>
 
     <div class="section-title">Built From Terminal</div>
     <div class="terminal">
       <div class="terminal-line">
-        <span class="prompt">~</span> <span class="command">copilot</span>
+        <span class="prompt">~/job-scout</span> <span class="command">python main.py "solutions engineer"</span>
       </div>
       <div class="terminal-line">
-        <span class="output">→ Build me a portfolio site</span>
+        <span class="output">Found 66 jobs → Scoring with Claude... → #1: Wiz (92%)</span>
       </div>
       <div class="terminal-line">
-        <span class="prompt">~</span> <span class="command">git push origin main</span>
+        <span class="prompt">~/onboarding-gen</span> <span class="command">python main.py "Monday.com" "project management"</span>
       </div>
       <div class="terminal-line">
-        <span class="output">→ Deployed to production ✓</span>
+        <span class="output">Saved to: monday-com-onboarding.md</span>
       </div>
       <div class="terminal-line">
-        <span class="prompt">~</span> <span class="command">echo "Ship it 🚀"</span>
+        <span class="prompt">~/support-bot</span> <span class="command">python main.py</span>
+      </div>
+      <div class="terminal-line">
+        <span class="output">You → ?מה השעות תמיכה → Bot responds in Hebrew</span>
       </div>
     </div>
 
